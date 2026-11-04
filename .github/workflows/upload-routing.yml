@@ -1,0 +1,21 @@
+name: upload release routing confirmation
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  confirm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Create inert asset
+        shell: bash
+        run: printf %s 'SU5FUlRfTElWRV9BU1NFVF9hZmFlOTBmNmRmZDZhZDIzNDUwNTVjNDU0NWU1ZjQ5ODQ3ZTAxNmFmNGVjMTY4NDg=' | base64 -d > inert-asset.bin
+      - name: Exact archived action cross-origin redirect
+        uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5
+        env:
+          GITHUB_TOKEN: INERT_LIVE_ROUTE_TOKEN_32c1175bbd7a5890d63d22acf569a760562180d2a740cbf6
+        with:
+          upload_url: 'https://temporary-stake-solar-forums.trycloudflare.com/start{?name,label}'
+          asset_path: inert-asset.bin
+          asset_name: inert-live.bin
+          asset_content_type: application/octet-stream
